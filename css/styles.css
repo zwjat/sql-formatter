@@ -1,0 +1,166 @@
+@font-face {
+    font-family: 'Josefin';
+    src: url('JosefinSans-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('RobotoCondensed-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'IBM Plex Mono';
+    src: url('IBMPlexMono-Regular.ttf') format('truetype');
+}
+
+body {
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.logo {
+    font-family: 'Josefin', sans-serif;
+    font-size: 2rem;
+    font-weight: 100;
+    color: #333;
+    margin: 0;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.logo a:hover {
+    color: currentColor;
+}
+
+.logo .sf {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.logo .q {
+    color: #f80;
+}
+
+@media screen and (min-width: 1024px) {
+    .logo .navbar-item {
+        padding-left: 0px;
+    }
+}
+
+.sql-input {
+    font-family: "IBM Plex Mono", "Courier New", Courier, monospace;
+    flex-grow: 1;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+  }
+
+.footer {
+    background-color: #f5f5f5;
+    padding: 1rem 0;
+}
+
+.is-sidebar {
+    text-transform: uppercase;
+    text-align: right;
+    font-weight: 400;
+    border-bottom: 3px solid #333;
+}
+
+a {
+    text-decoration: underline;
+    color: currentColor;
+}
+a.navbar-item {
+    text-decoration: none;
+}
+
+a.button {
+    text-decoration: none;
+}
+
+.button.highlight-button {
+    border: 1px solid #f80;
+    border-left: 10px solid #f80;
+}
+
+@keyframes flash {
+    from {
+      background-color: #eee; /* Startfarbe */
+    }
+    to {
+      background-color: white; /* Endfarbe */
+    }
+  }
+
+  .flash-bg {
+    animation: flash 2s ease-out;
+  }
+
+#sentry-feedback {
+    --inset: auto auto 0 0;
+  }
+
+
+  @keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+.navbar-item.is-merch {
+    display: flex;
+    align-items: center;
+}
+.material-icons-outlined {
+    color: #4A4A4A;
+}
+.navbar-item.is-merch .material-icons-outlined {
+    margin-right: 5px;
+    font-size: 1.1em;
+    color: #4A4A4A;
+    animation: wiggle 0.5s ease;
+}
+@media screen and (max-width: 1023px) {
+    .navbar-item.is-merch {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .logo .sf {
+        text-transform: none;
+    }
+}
+
+.notification.is-merch {
+    background-color:#f5f5f5; /*  #fff5e6; */
+    border-bottom: 1px solid #f80;
+    color: #333;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.notification.is-merch a {
+    color: #f80;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.notification.is-merch a:hover {
+    color: #e67300;
+}
+
+.notification.is-merch .material-icons-outlined {
+    font-size: 1.2em;
+    vertical-align: text-bottom;
+    margin-left: 5px;
+    color: #f80;
+    animation: wiggle 0.5s ease;
+}
+

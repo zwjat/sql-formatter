@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" itemprop="description" content="Format SQL statements online. Format and check your SQL statements, made a bit more easy.">
+    <meta name="keywords" content="sql formatter, sql parse, sql, format SQL, format query, sql coding, sql online, sql beautifier, sql query formatter, debug SQL statements, sql check, free, pretty-print SQL statements, SQL pretty, SQL debug, online, formatting, formatter, beautifier">
+    <title>Online SQL Formatter - sqlformatter.online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/cash-dom/dist/cash.min.js"></script> -->
+     <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/xcode.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sql.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    
+</head>
+<body>
+    <header class="has-shadow">
+        <nav class="navbar is-transparent container is-fluid">
+            <div class="navbar-brand logo">
+                <a class="navbar-item" href="/">
+                    <span class="sf"><span class="q">sql</span>formatter</span>.online
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="">
+            <div class="container is-fluid content">
+                
+<!-- <h1 class="title">SQL Formatter</h1> -->
+<div class="columns">
+    <div class="column">
+	   <h1><strong>SQLFormatter</strong> is a free online formatter for SQL statements. </h1> 
+       <p>
+            Welcome to the sqlformatter.online! Enjoy a sleeker design and faster, more private processing, as SQL statements are now handled directly in your browser, without sending data to our server.
+        </p>
+        <p>
+            Enter your SQL statement in the textarea below
+            and it will be fomatted automatically.
+          </p>
+    </div>
+</div>
+<div class="columns">
+    <div class="column is-two-thirds">
+        <textarea id="input" autofocus wrap="off" class="textarea sql-input" placeholder="Type your SQL here to see the results..."></textarea>
+        <div class="file is-right mt-4">
+            <label class="file-label">
+              <input class="file-input" type="file" name="sqlfile" id="sqlfile" />
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fa fa-upload"></i>
+                </span>
+                <span class="file-label"> Upload file… </span>
+              </span>
+            </label>
+          </div>
+    </div>
+    <div class="column is-one-third">
+        <h2 class="title is-5 is-sidebar">Options</h2>
+
+        <form id="options">
+            <div class="columns">
+                <div class="column">
+                    <div class="field">
+                        <label class="label" for="tabWidth">Tab width:</label>
+                        <div class="control"><input class="input" type="number" id="tabWidth" name="tabWidth" min="1" max="80" value="2" /></div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <label class="label" for="useTabs">Use tabs:</label>
+                        <div class="control"><input class="input" type="number" id="useTabs" name="useTabs" min="1" max="80" value="2" /></div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column">
+                    <div class="field">
+                        <label class="label" for="language">Language:</label>
+                        <div class="select">
+                            <select id="language">
+                                <option value="sql" selected>SQL</option>
+                                <option value="redshift">AWS Redshift</option>
+								<option value="bigquery">BigQuery</option>
+								<option value="db2">DB2</option>
+								<option value="db2i">DB2 for IBM i</option>
+								<option value="duckdb">DuckDB</option>
+								<option value="hive">Hive</option>
+								<option value="mariadb">MariaDB</option>
+								<option value="mysql">MySQL</option>
+								<option value="tidb">TiDB</option>
+								<option value="n1ql">N1QL</option>
+								<option value="plsql">PL/SQL</option>
+								<option value="postgresql">PostgreSQL</option>
+								<option value="singlestoredb">SingleStoreDB</option>
+								<option value="snowflake">Snowflake</option>
+								<option value="spark">Spark</option>
+								<option value="sqlite">SQLite</option>
+								<option value="tsql">Transact-SQL</option>
+								<option value="trino">Trino</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <label class="label" for="keywordCase">Keyword case:</label>
+                        <div class="select">
+                            <select id="keywordCase">
+                                <option value="preserve" selected>Preserve</option>
+							  <option value="upper">Upper</option>
+							  <option value="lower">Lower</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column">
+                    <div class="field">
+                        <label class="label" for="dataTypeCase">Data type case:</label>
+                        <div class="select">
+                            <select id="dataTypeCase">
+							  <option value="preserve" selected>Preserve</option>
+							  <option value="upper">Upper</option>
+							  <option value="lower">Lower</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <label class="label" for="functionCase">Function case:</label>
+                        <div class="select">
+                            <select id="functionCase">
+							  <option value="preserve" selected>Preserve</option>
+							  <option value="upper">Upper</option>
+							  <option value="lower">Lower</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column">
+                    <div class="field">
+                        <label class="label" for="identifierCase">Identifier case:</label>
+                        <div class="select">
+                            <select id="identifierCase">
+							  <option value="preserve" selected>Preserve</option>
+							  <option value="upper">Upper</option>
+							  <option value="lower">Lower</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <label class="label" for="indentStyle">Indentation style:</label>
+                        <div class="select">
+                            <select id="indentStyle">
+							  <option value="standard" selected>Standard</option>
+							  <option value="tabularLeft">Tabular, Left</option>
+							  <option value="tabularRight">Tabular, Right</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+            <div class="columns">
+                <div class="column">
+                    <div class="field">
+                        <label class="label" for="logicalOperatorNewline">AND/OR newlines:</label>
+                        <div class="select">
+                            <select id="logicalOperatorNewline">
+							  <option value="before" selected>before</option>
+							  <option value="after">after</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <label class="label" for="expressionWidth">Expression width:</label>
+                        <div class="control">
+                            <input class="input" type="number" id="expressionWidth" name="expressionWidth" min="0" max="200" value="50" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column">
+                    <div class="field">
+                        <label class="label" for="lineBetweenQueries">Lines between queries:</label>
+                        <div class="control">
+                            <input class="input" type="number" id="lineBetweenQueries" name="lineBetweenQueries" min="0" max="5" value="1" />
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <div class="control">
+						    <label class="checkbox">
+                                <input type="checkbox" id="denseOperators" name="denseOperators" />
+                                Dense operators
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column">
+                    <div class="field">
+                        <label class="label" for="newlineBeforeSemicolon">Semicolon on separate line:</label>
+                        <div class="control">
+						    <label class="checkbox">
+                                <input type="checkbox" id="newlineBeforeSemicolon" name="newlineBeforeSemicolon" />
+                                Semicolon on separate line
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                </div>
+            </div>
+			
+        </form>
+    </div>
+</div>
+<div class="columns">
+    <div class="column is-two-thirds">
+        <div class="has-text-right mb-4">
+            <button class="button is-small" id="btn-tct" >
+                <span class="icon is-small">
+                    <i class="fa fa-copy"></i>
+                </span>
+                <span>Copy To Clipboard</span>
+            </button>
+        </div>
+		<div id="output" class="mt-4"></div>
+		<textarea class="is-hidden" id="result"></textarea>
+		<div id="error" class="error"></div>
+    </div>
+    <div class="column is-one-third">
+        <h2 class="title is-5 is-sidebar mt-6">Readability Counts</h2>
+        <p>
+Formatting SQL statements is crucial for several reasons. First, it enhances readability, making complex queries easier to understand and debug. Well-formatted SQL is more approachable for new team members and aids in peer reviews. Consistent formatting ensures that everyone follows the same style, which is particularly important in collaborative environments.
+        </p>
+        <p>Here are some tips and tricks for formatting SQL:</p>
+        <ol>
+            <li><strong>Indentation:</strong> Use consistent indentation for nested queries. This helps in visually separating different levels of logic.</li>
+            <li><strong>Keywords:</strong> Write SQL keywords in uppercase to distinguish them from column and table names.</li>
+            <li><strong>Line Breaks:</strong> Place each clause of your SQL statement on a new line (e.g., SELECT, FROM, WHERE, JOIN). This enhances clarity.</li>
+            <li><strong>Aliases:</strong> Use meaningful aliases for tables and columns. This makes your SQL more readable and easier to understand.</li>
+            <li><strong>Comments:</strong> Include comments to explain complex logic or non-obvious choices. This helps others (and your future self) understand the rationale behind the code.</li>
+        </ol>
+        <p>
+            By adopting these practices, you ensure that your SQL code remains clean, maintainable, and understandable for everyone who interacts with it.
+        </p>
+        <p>
+            SQLFormat can help you achieve consistent and readable SQL formatting, except for the alias part. It's up to you to choose meaningful aliases ;-) <br/>
+            But it can remove comments, if you like so. Happy formatting!
+        </p>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/sql-formatter.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+<div class="columns mb-4">
+<div class="column">
+    <h2>Welcome to the sqlformatter.online!</h2>
+    <p>We're excited to introduce several new features and improvements to enhance your experience.</p>
+
+    <h3>Sleeker Design</h3>
+    <p>Our website now boasts a more streamlined and user-friendly design. This update aims to provide a cleaner, more intuitive interface, making it easier for you to navigate and use the site.</p>
+
+    <h3>Regular Updates</h3>
+    <p>We've implemented a system to keep the website updated with the latest versions of our tools and libraries. This ensures that you always have access to the newest features and improvements.</p>
+
+    <h3>In-Browser SQL Formatting</h3>
+    <p>One of the most significant changes is that SQL statements are now formatted directly in your browser. This is achieved using a Python runtime in the browser via pyodide and the latest version of the sqlparse library.</p>
+    <h2>What can you do with SQL Formatter?</h2>
+<p>This Query Formatter helps to beautify your SQL data instantly.</p>
+<p>It supports various SQL dialects: GCP BigQuery, IBM DB2, DuckDB, Apache Hive, MariaDB, MySQL, TiDB, Couchbase N1QL, Oracle PL/SQL, PostgreSQL, Amazon Redshift, SingleStoreDB, Snowflake, Spark, SQL Server Transact-SQL, Trino (and Presto). </p>
+<p>This SQL Pretty Print support Pretty Print SQL Query syntax.</p>
+<p>SQL Formatter supports .sql file, upload SQL file, and format.</p>
+<p>It also helps to Minify/Compress your SQL.</p>
+<p>This Instant SQL Formatter Online works well on Windows, MAC, Linux, Chrome, Firefox, Edge, and Safari to clean up and reformat your SQL.</p>
+<p><strong>It does not support:</strong></p>
+ <ul>
+    <li>Stored procedures.</li>
+    <li>Changing of the delimiter type to something else than ;. </li>
+</ul>
+    
+    <h2>Advantages</h2>
+    <ul>
+        <li><strong>Enhanced Privacy</strong>: Since no SQL statements leave your browser, your data remains private and secure.</li>
+        <li><strong>Improved Performance</strong>: With the latest version of sqlparse, you can expect faster and more accurate formatting.</li>
+    </ul>
+
+    <h2>Improved Privacy Settings</h2>
+    <p>We've enhanced our privacy settings to give you more control over your data. You can now manage your privacy preferences more easily, ensuring a safer browsing experience.</p>
+
+    <h2>Mobile Optimization</h2>
+    <p>The website has been optimized for mobile devices, providing a seamless experience whether you're using a smartphone, tablet, or desktop. Enjoy a responsive design that adapts to any screen size for better usability on the go.</p>
+
+    <p>We hope you enjoy these new features and the improved experience on sqlformat.org. Please share your feedback using the Feedback button (Report a Bug) at the bottom of the page. Happy formatting!</p>
+	<h2>Privacy policy</h2>
+    <ul>
+    <li>All SQL Formatting operations are done within your browser using JavaScript. We don't send your input data to our servers. Its totally private and secure</li>
+    <li>We use Google Analytics for calculating page views</li>
+    </ul>
+    <h2>Terms of use</h2>
+    <ul>
+    <li>No usage limits: You don't need an account to use our tools. All tools are free of charge and you can use them as much as you want</li>
+    <li>We're not liable for your actions and we offer no warranty</li>
+    </ul>
+    </div>
+</div>
+
+ </div>
+</section>
+</main>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p><strong>sqlformatter.online</strong>
+                Contact: <a href="support@sqlformatter.online">support@sqlformatter.online</a><br />
+            </span>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
